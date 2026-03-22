@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:key="cancel_original"
+        android:summary="@string/pref_cancel_original_summary"
+        android:title="@string/pref_cancel_original"
+        app:iconSpaceReserved="false" />
+    
+    <SwitchPreferenceCompat
+        android:defaultValue="true"
+        android:key="show_app_name"
+        android:summary="@string/pref_show_app_name_summary"
+        android:title="@string/pref_show_app_name"
+        app:iconSpaceReserved="false" />
+    
+</PreferenceScreen>

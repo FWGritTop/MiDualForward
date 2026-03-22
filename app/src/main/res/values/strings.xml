@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">通知转发助手</string>
+    <string name="permission_required">需要授权</string>
+    <string name="permission_description">请授予通知监听权限，以便本应用能够读取并转发其他应用的通知。</string>
+    <string name="grant_permission">授予权限</string>
+    <string name="service_status">服务状态</string>
+    <string name="status_running">运行中</string>
+    <string name="status_stopped">已停止</string>
+    <string name="mi_fitness_status">小米运动健康</string>
+    <string name="mi_fitness_not_found">未安装</string>
+    <string name="open_mi_fitness">打开小米运动健康</string>
+    <string name="setup_mi_fitness">请在小米运动健康中开启本应用的通知权限</string>
+    <string name="app_list_title">应用列表</string>
+    <string name="app_list_hint">开启需要转发通知的应用</string>
+    <string name="no_apps">暂无应用</string>
+    <string name="dual_app">双开</string>
+    <string name="refresh">刷新</string>
+    <string name="settings">设置</string>
+    <string name="pref_cancel_original">取消原通知</string>
+    <string name="pref_cancel_original_summary">转发后取消原始通知</string>
+    <string name="pref_show_app_name">显示应用名</string>
+    <string name="pref_show_app_name_summary">在通知中显示来源应用名称</string>
+</resources>

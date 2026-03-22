@@ -1,0 +1,24 @@
+# Build outputs
+.gradle/
+gradle-8.4/
+android-sdk/
+build/
+*.apk
+*.aab
+*.idsig
+
+# Local configuration
+local.properties
+*.iml
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Keystore (do not commit)
+*.jks
+*.keystore
+
+# Logs
+*.log
