@@ -35,7 +35,7 @@ Xiaomi Fitness has a custom notification feature, but it cannot send notificatio
 
 ### Option 1: Download APK
 
-Download the latest APK from [Releases](../../releases) page.
+Download [NotifyForwarder-v1.0.0.apk](./NotifyForwarder-v1.0.0.apk) directly from this repository.
 
 ### Option 2: Build from Source
 
