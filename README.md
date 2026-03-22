@@ -1,136 +1,124 @@
-# 通知转发助手
+# MiDualForward
 
 <p align="center">
-  <img src="app/src/main/res/mipmap-hdpi/ic_launcher.webp" alt="Logo" width="80" height="80">
+  <strong>Forward notifications from dual apps to your Xiaomi bracelet</strong>
 </p>
 
 <p align="center">
-  <strong>解决小米手环无法接收双开应用通知的问题</strong>
+  <em>小米运动健康无法选择双开应用通知？MiDualForward 帮你解决！</em>
 </p>
 
 <p align="center">
-  <a href="#功能特性">功能特性</a> •
-  <a href="#截图">截图</a> •
-  <a href="#安装">安装</a> •
-  <a href="#使用方法">使用方法</a> •
-  <a href="#技术原理">技术原理</a>
+  <a href="#features">Features</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#how-it-works">How it Works</a>
 </p>
 
 ---
 
-## 功能特性
+## Features
 
-- ✅ 监听系统所有应用的通知
-- ✅ 支持MIUI应用双开识别
-- ✅ 自定义选择需要转发的应用
-- ✅ 搜索应用功能
-- ✅ 自动将通知转发到小米手环
-- ✅ 开机自动启动
-- ✅ Material Design 3 界面
+- ✅ Monitor all app notifications
+- ✅ Support MIUI dual app detection
+- ✅ Select apps to forward
+- ✅ Search functionality
+- ✅ Auto-forward to Xiaomi bracelet
+- ✅ Auto-start on boot
+- ✅ Material Design 3 UI
 
-## 问题背景
+## Background
 
-小米运动健康的通知设置中无法选择双开应用（如双开的微信、QQ等），导致这些应用的通知无法推送到小米手环。本应用通过监听系统通知并重新发送的方式，让双开应用的通知也能推送到手环。
+Xiaomi Fitness has a custom notification feature, but it cannot send notifications for dual apps (like dual WeChat, QQ, etc.). This AI-generated app forwards notifications from selected apps, enabling Xiaomi Fitness to forward messages to your bracelet.
 
-## 截图
+## Installation
 
-| 主界面 | 应用管理 |
-|:---:|:---:|
-| 服务状态显示 | 搜索并选择应用 |
+### Option 1: Download APK
 
-## 安装
+Download the latest APK from [Releases](../../releases) page.
 
-### 方式一：直接下载APK
-
-从 [Releases](../../releases) 页面下载最新版本的APK文件安装。
-
-### 方式二：自行编译
+### Option 2: Build from Source
 
 ```bash
-# 克隆仓库
-git clone https://github.com/your-username/NotifyForwarder.git
-cd NotifyForwarder
-
-# 编译
+git clone https://github.com/FWGritTop/MiDualForward.git
+cd MiDualForward
 ./gradlew assembleRelease
-
-# APK位置
-# app/build/outputs/apk/release/app-release.apk
 ```
 
-## 使用方法
+## Usage
 
-### 第一步：授予权限
+### Step 1: Grant Permissions
 
-1. 打开应用
-2. 点击「授予权限」
-3. 在设置中开启「通知转发助手」的通知监听权限
+1. Open the app
+2. Tap "Grant Permission"
+3. Enable notification listener permission for "MiDualForward"
 
-### 第二步：选择转发应用
+### Step 2: Select Apps
 
-1. 点击「应用管理」
-2. 搜索需要转发的应用
-3. 开启应用右侧的开关
-4. 双开应用会显示为「应用名 (双开)」
+1. Tap "App Manager"
+2. Search for apps you want to forward
+3. Enable the switch
+4. Dual apps will show as "App Name (Dual)"
 
-### 第三步：配置小米运动健康
+### Step 3: Configure Xiaomi Fitness
 
-1. 打开小米运动健康
-2. 进入设备设置 → 通知设置
-3. 开启「通知转发助手」的通知权限
+1. Open Xiaomi Fitness
+2. Go to Device Settings → Notification Settings
+3. Enable notification permission for "MiDualForward"
 
-### 第四步：完成
+### Step 4: Done!
 
-现在选中的应用通知会自动转发到小米手环。
+Selected app notifications will now be forwarded to your Xiaomi bracelet.
 
-## 技术原理
+## How it Works
 
 ```
 ┌─────────────┐     ┌──────────────────┐     ┌─────────────┐
-│  双开应用    │────▶│  通知转发助手     │────▶│ 小米运动健康 │
-│  (微信等)    │     │ (NotificationListener)│     │             │
+│  Dual App   │────▶│  MiDualForward   │────▶│Xiaomi Fitness│
+│  (WeChat)   │     │(NotificationListener)│    │             │
 └─────────────┘     └──────────────────┘     └──────┬──────┘
                                                     │
                                                     ▼
                                               ┌─────────────┐
-                                              │   小米手环   │
+                                              │Xiaomi Bracelet│
                                               └─────────────┘
 ```
 
-1. 使用 `NotificationListenerService` 监听系统通知
-2. 通过反射获取通知的 `userId` 识别双开应用
-3. 将选中的应用通知重新发送
-4. 小米运动健康捕获转发通知并推送到手环
+1. Use `NotificationListenerService` to monitor notifications
+2. Detect dual apps via `userId` using reflection
+3. Re-post notifications from selected apps
+4. Xiaomi Fitness captures and forwards to bracelet
 
-## 权限说明
+## Permissions
 
-| 权限 | 用途 |
-|-----|------|
-| 通知监听权限 | 监听系统通知 |
-| 通知权限 | 发送转发通知 |
-| 开机启动 | 开机自动启动服务 |
-| 后台运行 | 保持服务运行 |
+| Permission | Purpose |
+|------------|---------|
+| Notification Listener | Monitor system notifications |
+| Notification | Post forwarded notifications |
+| Boot Completed | Auto-start on boot |
+| Background | Keep service running |
 
-## 兼容性
+## Compatibility
 
 - Android 7.0+
 - MIUI 12+
-- 小米运动健康
+- Xiaomi Fitness
 
-## 已知问题
+## Known Issues
 
-- 转发通知会在通知栏显示，可手动划掉
-- 需要MIUI自启动权限保持后台运行
+- Forwarded notifications appear in notification bar (can be dismissed manually)
+- Requires MIUI auto-start permission for background operation
 
-## 开源协议
+## License
 
 MIT License
 
-## 贡献
+## Contributing
 
-欢迎提交 Issue 和 Pull Request。
+Issues and Pull Requests are welcome!
 
-## 致谢
+## Acknowledgments
 
 - Material Design 3
 - Android NotificationListenerService
+- AI-assisted development (GLM-5)
